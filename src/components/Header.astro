@@ -1,0 +1,23 @@
+---
+import "../styles/colorPalette.css"
+---
+<div class="HeaderBackground"></div>
+<h1 id="Name">Jeanette Crull</h1>
+
+<style>
+    :root {
+        --grid-size: 16px;
+        --column-count: round(up, calc(100vw / var(--grid-size)),)
+    }
+    .HeaderBackground {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(var(--column-count), var(--grid-size));
+    }
+    #Name {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        background-color: var(--highlight-purple);
+    }
+</style>
