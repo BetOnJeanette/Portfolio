@@ -1,0 +1,18 @@
+---
+interface Props {
+    label: string;
+    dest: string;
+}
+
+const { label, dest } = Astro.props;
+---
+
+<li class="Destination">
+    <a href={dest}>{label}</a>
+</li>
+<style>
+    .Destination {
+        list-style-type: none;
+        padding: 0 2%;
+    }
+</style>

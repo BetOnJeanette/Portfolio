@@ -1,0 +1,19 @@
+---
+import "../styles/colorPalette.css"
+interface Props {
+    id: string;
+    label: string;
+}
+
+const { id, label } = Astro.props;
+---
+
+<section id={id}>
+    <h1>{ label }</h1>
+    <slot />
+</section>
+<style>
+    h1 {
+        color: var(--highlight-purple);
+    }
+</style>
