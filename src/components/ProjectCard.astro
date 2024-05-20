@@ -1,0 +1,54 @@
+---
+import "../styles/colorPalette.css"
+import { Image } from "astro:assets"
+interface Props {
+    projImage: string;
+    imageAltText: string;
+    projectName: string;
+    startDate: Date;
+    completionDate?: Date;
+}
+const { projImage, imageAltText, projectName, startDate, completionDate } = Astro.props;
+const dateOptions: Intl.DateTimeFormatOptions = { month: "short", year: "numeric"}
+const startDateFormatStr = startDate.toLocaleDateString(undefined, dateOptions)
+const completionDateFormatStr = completionDate?.toLocaleDateString(undefined, dateOptions) ?? "Present"
+---
+<div class="ProjectCard">
+    <Image src={ projImage ?? "" } alt={ imageAltText } width={800} height={450}/>
+    <div class="ProjectDesc">
+        <h2>{ projectName }</h2>
+        <sub>{ startDateFormatStr } - { completionDateFormatStr }</sub>
+        <slot />
+    </div>
+</div>
+<style>
+    :root {
+        --border-width: 5px;
+        --border-radius: 30px;
+        --inside-border-radius: calc(var(--border-radius) - var(--border-width));
+        --padding: calc(2 * var(--border-width));
+        --single-vertical-step: var(--padding);
+    }
+    .ProjectCard {
+        margin: var(--single-vertical-step) 0;
+        counter-increment: projectCount;
+        justify-content: center;
+        border-radius: var(--border-radius);
+        border-width: var(--border-width);
+        border-color: var(--highlight-purple);
+        border-style: solid;
+        box-shadow: var(--border-width) var(--border-width);
+        overflow: hidden;
+    }
+    .ProjectDesc {
+        padding: 0 var(--padding);
+        line-height: normal;
+    }
+    .ProjectDesc h2 {
+        margin: 0;
+    }
+    .ProjectCard img {
+        border-radius: var(--inside-border-radius) var(--inside-border-radius) 0 0;
+        object-fit: contain;
+    }
+</style>
