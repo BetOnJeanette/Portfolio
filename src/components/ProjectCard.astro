@@ -14,7 +14,7 @@ const startDateFormatStr = startDate.toLocaleDateString(undefined, dateOptions)
 const completionDateFormatStr = completionDate?.toLocaleDateString(undefined, dateOptions) ?? "Present"
 ---
 <div class="ProjectCard">
-    <Image src={ projImage ?? "" } alt={ imageAltText } width={800} height={450}/>
+    <Image src={ projImage } alt={ imageAltText } width={800} height={450}/>
     <div class="ProjectDesc">
         <h2>{ projectName }</h2>
         <sub>{ startDateFormatStr } - { completionDateFormatStr }</sub>
