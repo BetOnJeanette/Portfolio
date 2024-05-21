@@ -1,0 +1,21 @@
+---
+import "./ProjectCard.astro"
+import ProjectCard from "./ProjectCard.astro"
+---
+
+<div class="AlternatingCards">
+    <ProjectCard projImage="/LanPartyApp.png" imageAltText="LAN Party App" projectName="LAN Party App" startDate={new Date(2020, 8)} completionDate={new Date(2020, 11)} >
+        A webapp where players could create and find local game events. They could share what games are going to be played, 
+        who was planning on attending, and what people should bring. 
+    </ProjectCard>
+    <ProjectCard projImage="/Godot.png" imageAltText="Game" projectName="Untitled Godot Game" startDate={new Date(2024, 0)}>
+        A board game video game built in Godot using C#. Players move around the board to complete jobs and buy properties for money,
+        all to be the richest person in the end.
+    </ProjectCard>
+    <ProjectCard projImage="/Dayta.png" imageAltText="Dayta Calendar" projectName="Dayta" startDate={new Date(2024, 3)}>
+        A calendar app that I started developing with <a href="https://zoezo.dev/">Zoey Eijgenberger</a>. 
+    </ProjectCard>
+</div>
+<style>
+
+</style>
