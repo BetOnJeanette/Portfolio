@@ -18,7 +18,9 @@ const completionDateFormatStr = completionDate?.toLocaleDateString(undefined, da
     <div class="ProjectDesc">
         <h2>{ projectName }</h2>
         <sub>{ startDateFormatStr } - { completionDateFormatStr }</sub>
-        <slot />
+        <p>
+            <slot />
+        </p>
     </div>
 </div>
 <style>
