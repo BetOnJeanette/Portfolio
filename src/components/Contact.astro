@@ -2,4 +2,13 @@
 import "../styles/colorPalette.css"
 import GitHubLink from "./GitHubLink.astro"
 ---
-<GitHubLink />
+<div class="contactLinks">
+    <GitHubLink />
+</div>
+<style>
+    .contactLinks {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+</style>
