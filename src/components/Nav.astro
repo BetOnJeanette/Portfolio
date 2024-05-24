@@ -11,10 +11,10 @@ const { iconPath } = Astro.props;
 <nav>
     <img src={iconPath} alt="Jeanette Crull" />
     <ul class="DestOpts">
-        <NavLinks dest="#About" label="About Me" />
-        <NavLinks dest="#ProfessionalExperience" label="Professional Experience" />
+        <NavLinks dest="#About" label="About" />
+        <NavLinks dest="#ProfessionalExperience" label="Experience" />
         <NavLinks dest="#Projects" label="Projects" />
-        <NavLinks dest="#ContactInfo" label="Contact Info" />
+        <NavLinks dest="#ContactInfo" label="Contact" />
     </ul>
 </nav>
 
@@ -25,6 +25,10 @@ const { iconPath } = Astro.props;
         align-items: baseline;
         justify-content: space-around;
         border-radius: 0 0 4px 4px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 3;
     }
     .DestOpts{
         justify-content: right;
