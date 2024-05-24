@@ -60,7 +60,7 @@ enum IDs {
         transition: fill .5s;
         fill: white;
     }
-    #LinkedIn:hover #LinkedInBox {
+    #LinkedIn:is(:hover,:focus-within) #LinkedInBox {
         fill: var(--highlight-purple);
     }
 </style>
