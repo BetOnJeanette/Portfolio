@@ -10,7 +10,10 @@ const columnCount = 16;
             </div>
         </template>
     </div>
-    <h1 id="Name">Jeanette Crull</h1>
+    <div id="NameSection">
+        <h1 id="Name">Jeanette Crull</h1>
+        <p id="Position">Full-stack engineer</p>
+    </div>
 </div>
 
 <style define:vars={{columnCount}}>
@@ -46,12 +49,19 @@ const columnCount = 16;
         align-content: center;
 
     }
-    #Name {
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
+    #NameSection {
         z-index: 2;
-        position: relative;
-        float: right;
+        font-size: 5rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: var(--highlight-purple);
+        color: black;
+        border-color: black;
+        border-width: 0 4px;
+        border-style: solid;
+    }
+    #Name, #Position {
+        line-height: 1;
     }
 </style>
