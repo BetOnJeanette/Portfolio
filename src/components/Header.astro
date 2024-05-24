@@ -1,23 +1,70 @@
 ---
 import "../styles/colorPalette.css"
+const columnCount = 16;
 ---
-<div class="HeaderBackground"></div>
-<h1 id="Name">Jeanette Crull</h1>
+<div id="Header">
+    <div x-data=`{get cellCount() { return ${ columnCount } * Math.ceil(window.innerHeight * ${ columnCount } / window.innerWidth)}}` class="HeaderBackground">
+        <template x-for="i in cellCount">
+            <div class="GridCell">
+                <div class="GridCellVisible"></div>
+            </div>
+        </template>
+    </div>
+    <div id="NameSection">
+        <h1 id="Name">Jeanette Crull</h1>
+        <p id="Position">Full-stack engineer</p>
+    </div>
+</div>
 
-<style>
-    :root {
-        --grid-size: 16px;
-        --column-count: round(up, calc(100vw / var(--grid-size)),)
-    }
-    .HeaderBackground {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(var(--column-count), var(--grid-size));
-    }
-    #Name {
+<style define:vars={{columnCount}}>
+    #Header {
+        min-height: 100vh;
         display: flex;
-        align-items: baseline;
-        justify-content: center;
+    }
+    .HeaderBackground{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        display: grid;
+        grid-template-columns: repeat(var(--columnCount), 1fr);
+        gap: 4px;
+    }
+    .GridCellVisible {
         background-color: var(--highlight-purple);
+        width: 100%;
+        max-height: 100%;
+        transition: max-height .125s ease-in;
+        border-radius: 5px;
+    }
+    .GridCell:hover .GridCellVisible{
+        max-height: 0;
+    }
+    .GridCell {
+        display: flex;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+
+    }
+    #NameSection {
+        z-index: 2;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        height: inherit;
+        width: 100%;
+        background-color: var(--highlight-purple);
+        color: black;
+        border-color: black;
+        border-width: 0 4px;
+        border-style: solid;
+    }
+    #Name, #Position {
+        line-height: 1;
     }
 </style>
