@@ -1,0 +1,74 @@
+---
+interface Props {
+    sideLength: number,
+    sidePadding: string,
+}
+
+const { sideLength, sidePadding } = Astro.props;
+
+enum IDs {
+    LinkedInLettering = "LinkedInLettering",
+    LinkedInBox = "LinkedInBox"
+}
+---
+<div id="LinkedIn">
+    <a href="https://www.linkedin.com/in/jeanettecrull/">        
+        <svg
+           version="1.1"
+           id="svg1"
+           width={ sideLength }
+           height={ sideLength }
+           viewBox="0 0 172.8 172.8"
+           xmlns="http://www.w3.org/2000/svg">
+           <title>LinkedIn</title>
+           <mask id={IDs.LinkedInLettering}>
+                <rect
+                    fill="white"
+                    width="172.8"
+                    height="172.8"
+                    x="0"
+                    y="0"
+                    ry="14.216009" />
+                <rect
+                    id="rect8"
+                    fill="black"
+                    width="25.596418"
+                    height="81.638329"
+                    x="25.596418"
+                    y="64.31369" />
+                <ellipse
+                    fill="black"
+                    id="path8"
+                    cx="38.40419"
+                    cy="38.480244"
+                    rx="14.753294"
+                    ry="14.75329" />
+                <path
+                    fill="black"
+                    d="m 66.894842,64.313693 h 24.520939 v 11.22104 c 0,0 7.268311,-13.333505 23.094309,-13.333505 27.37534,0 31.75516,17.008726 31.75516,37.846652 0,15.30138 0,45.90414 0,45.90414 h -25.57723 c 0,0 0,-28.45288 0,-43.54334 0,-10.048308 -5.12679,-17.555208 -12.99585,-17.555208 -12.657012,0 -15.075209,11.1769 -15.075209,16.966418 0,15.86289 0,44.13213 0,44.13213 H 66.894842 Z"
+                    id="path13" />
+            </mask>
+            <rect
+                id={IDs.LinkedInBox}
+                width="172.8"
+                height="172.8"
+                x="0"
+                y="0"
+                ry="14.216009" 
+                mask={`url(#${IDs.LinkedInLettering})`}/>
+        </svg>
+    </a>
+</div>
+
+<style define:vars={{ sidePadding }}>
+    #LinkedIn {
+        padding: 0 var(--sidePadding);
+    }
+    #LinkedIn #LinkedInBox { 
+        transition: fill .5s;
+        fill: white;
+    }
+    #LinkedIn:is(:hover,:focus-within) #LinkedInBox {
+        fill: var(--highlight-purple);
+    }
+</style>

@@ -1,0 +1,21 @@
+---
+import "../styles/colorPalette.css"
+import Email from "./ContactLinks/Email.astro"
+import GitHubLink from "./ContactLinks/GitHubLink.astro"
+import LinkedIn from "./ContactLinks/LinkedIn.astro"
+
+const sharedSideLength = 100;
+const sharedSidePadding = "5px"
+---
+<div id="ContactInfo">
+    <LinkedIn sideLength={ sharedSideLength } sidePadding={ sharedSidePadding }/>
+    <Email sideLength={ sharedSideLength } sidePadding={ sharedSidePadding }/>
+    <GitHubLink sideLength={ sharedSideLength } sidePadding={ sharedSidePadding }/>
+</div>
+<style>
+    #ContactInfo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
