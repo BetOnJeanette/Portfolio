@@ -23,14 +23,15 @@ const { iconPath } = Astro.props;
         background-color: var(--highlight-purple);
         display:flex;
         align-items: baseline;
-        justify-content: space-between;
-        padding: 0 10%;
+        justify-content: space-around;
         border-radius: 0 0 4px 4px;
     }
     .DestOpts{
-        width: max-content;
-        float: right;
-        display: inline-flex;
+        justify-content: right;
+        width: min-content;
+        display: flex;
         white-space: nowrap;
+        padding: 0;
+        min-width: 70%;
     }
 </style>
