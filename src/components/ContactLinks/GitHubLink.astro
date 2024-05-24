@@ -1,12 +1,18 @@
 ---
 import "../../styles/colorPalette.css";
+interface Props {
+    sideLength: number,
+    sidePadding: string,
+}
+
+const { sideLength, sidePadding } = Astro.props;
 ---
 
 <div id="GitHubLogo">
     <a href="https://github.com/BetOnJeanette">
         <svg
-        width="100"
-        height="100"
+        width={ sideLength }
+        height={ sideLength }
         version="1.1"
         xmlns="http://www.w3.org/2000/svg">
         <title>GitHub</title>
@@ -42,7 +48,7 @@ import "../../styles/colorPalette.css";
         </svg>
     </a>
 </div>
-<style>
+<style define:vars={{sidePadding}}>
     @property ----highlight-edge {
         syntax: '<percent>';
         inherits: false;
@@ -51,7 +57,7 @@ import "../../styles/colorPalette.css";
     #GitHubLogo {
         display: block;
         width: min-content;
-        padding: 0 5px;
+        padding: 0 var(--sidePadding);
     }
     .GitHubFill {
         stroke-dasharray: 1;
