@@ -1,7 +1,10 @@
 import { defineConfig } from 'astro/config';
 
+import alpinejs from "@astrojs/alpinejs";
+
 // https://astro.build/config
 export default defineConfig({
-    site: "https://betonjeanette.github.io/",
-    base: "/Portfolio"
+  site: "https://betonjeanette.github.io/",
+  base: "/Portfolio",
+  integrations: [alpinejs()]
 });
