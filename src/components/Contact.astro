@@ -1,14 +1,17 @@
 ---
 import "../styles/colorPalette.css"
+import Email from "./ContactLinks/Email.astro"
 import GitHubLink from "./ContactLinks/GitHubLink.astro"
 ---
 <div class="contactLinks">
+    <Email />
     <GitHubLink />
 </div>
 <style>
     .contactLinks {
         display: flex;
         justify-content: center;
-        align-items: baseline;
+        align-items: center;
+        height: min-content;
     }
 </style>
