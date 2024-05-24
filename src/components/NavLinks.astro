@@ -2,15 +2,15 @@
 interface Props {
     label: string;
     dest: string;
-    inverted?: boolean;
+    emphasized?: boolean;
 }
 
-const { label, dest, inverted = false } = Astro.props;
+const { label, dest, emphasized = false } = Astro.props;
 ---
 
 <li class="Destination">
     <a href={dest}>
-        <b><p class={inverted ? "InvertedLinkButton" : "LinkButton"}>{ label }</p></b>
+        <b><p class={emphasized ? "EmphasizedLinkButton" : "LinkButton"}>{ label }</p></b>
     </a>
 </li>
 <style>
@@ -18,7 +18,7 @@ const { label, dest, inverted = false } = Astro.props;
         list-style-type: none;
         padding: 0 4px;
     }
-    .LinkButton, .InvertedLinkButton{
+    .LinkButton, .EmphasizedLinkButton{
         margin: 0;
         padding: 8px;
         border-width: 4px;
@@ -34,8 +34,14 @@ const { label, dest, inverted = false } = Astro.props;
         color: black;
         background-color: var(--highlight-purple);
     }
-    .InvertedLinkButton {
+    .EmphasizedLinkButton {
         background-color: black;
         color: var(--highlight-purple);
+    }
+
+    @media screen and (max-width: 480px) {
+        .LinkButton {
+            display: none;
+        }
     }
 </style>
