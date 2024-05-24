@@ -23,16 +23,17 @@ import "../../styles/colorPalette.css";
                 style="fill:#ffffff;fill-opacity:1" />
             </mask>
         </defs>
-        <rect
-            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:30.949;stroke-dasharray:309.49;stroke-dashoffset:83.5623;stroke-opacity:1"
-            id="rect3"
-            width="98"
-            height="96"
-            x="0"
-            y="0"
+        <path
+            id="StandardFill"
+            class="GitHubFill"
+            style="stroke-width:30.9489994;stroke-opacity:1"
+            pathLength="1"
+            d="M 49,85.675481 C 30.613124,85.885944 6.9421604,67.45184 7.0660845,49.119296 7.1900086,30.786752 30.831236,13.330951 49,13.538259 67.168764,13.745568 88.907387,31.256647 89.028794,49.119296 89.150201,66.981945 67.386875,85.465019 49,85.675481 Z"
+            id="path2"
             mask="url(#mask3)" />
         <path
-            class="radialHighlight"
+            id="radialHighlight"
+            class="GitHubFill"
             style="stroke-width:30.9489994;stroke-opacity:1"
             pathLength="1"
             d="M 49,85.675481 C 30.613124,85.885944 6.9421604,67.45184 7.0660845,49.119296 7.1900086,30.786752 30.831236,13.330951 49,13.538259 67.168764,13.745568 88.907387,31.256647 89.028794,49.119296 89.150201,66.981945 67.386875,85.465019 49,85.675481 Z"
@@ -52,14 +53,23 @@ import "../../styles/colorPalette.css";
         width: min-content;
         padding: 0 5px;
     }
-    #GitHubLogo .radialHighlight {
-        stroke: var(--highlight-purple);
+    .GitHubFill {
         stroke-dasharray: 1;
-        stroke-dashoffset: 1;
         transition: stroke-dashoffset .5s;
-        fill:none;
+        fill: none;
     }
-    #GitHubLogo:is(:hover, :focus-within) .radialHighlight{
+    #GitHubLogo #StandardFill {
+        stroke: white;
+        stroke-dashoffset: 2;
+    }
+    #GitHubLogo:is(:hover, :focus-within) #StandardFill {
+        stroke-dashoffset: 1;
+    }
+    #GitHubLogo #radialHighlight {
+        stroke: var(--highlight-purple);
+        stroke-dashoffset: 1;
+    }
+    #GitHubLogo:is(:hover, :focus-within) #radialHighlight{
         stroke-dashoffset: 0;
     }
 </style>
