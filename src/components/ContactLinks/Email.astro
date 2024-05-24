@@ -1,0 +1,52 @@
+---
+
+---
+<div id="Email">
+    <a href="mailto:jeanettecrull99@gmail.com">
+        <svg
+        width="100"
+        height="100"
+        version="1.1"
+        id="svg1"
+        xmlns="http://www.w3.org/2000/svg">
+        <title>Email</title>
+            <path
+            d="M 5,5.0000003 H 94.999999 V 94.999999 H 5 V 5.0000003 L 50,50 94.999999,5.0000003"
+            id="basePath"
+            class="emailIcon"
+            pathLength="1"
+            />
+            <path
+            d="M 5,5.0000003 H 94.999999 V 94.999999 H 5 V 5.0000003 L 50,50 94.999999,5.0000003"
+            id="highlightPath"
+            class="emailIcon"
+            pathLength="1"
+            />
+        </svg>
+    </a>
+</div>
+<style>
+    .emailIcon {
+        fill: none;
+        stroke-width:8.189;
+        transition: stroke-dashoffset 1s;
+        stroke-dasharray: 1;
+        stroke-opacity: 100%;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+    #basePath {
+        stroke: white;
+        stroke-dashoffset: 2;
+    }
+    #Email:is(:hover, :focus-within) #basePath {
+        stroke-dashoffset: 1;
+    }
+    #highlightPath {
+        stroke: var(--highlight-purple);
+        stroke-dashoffset: 1;
+    }
+    #Email:is(:hover, :focus-within) #highlightPath {
+        stroke-dashoffset: 0;
+    }
+</style>
