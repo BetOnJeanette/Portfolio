@@ -9,7 +9,7 @@ const { iconPath } = Astro.props;
 ---
 
 <nav>
-    <b><img src={iconPath} alt="Jeanette Crull" /></b>
+    <a id="LogoLink" href="#Header"><b><img src={iconPath} alt="Jeanette Crull"  /></b></a>
     <ul class="DestOpts">
         <NavLinks dest="#About" label="About" />
         <NavLinks dest="#ProfessionalExperience" label="Experience" />
@@ -19,6 +19,11 @@ const { iconPath } = Astro.props;
 </nav>
 
 <style>
+    #LogoLink
+    {
+        text-decoration: none;
+        color: black;
+    }
     nav {
         background-color: var(--highlight-purple);
         display:flex;
