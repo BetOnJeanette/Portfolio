@@ -28,8 +28,8 @@ const { title, imagePath, startDate, endDate } = Astro.props;
 	<Nav />
 	<main>
 		<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
-		<DateSubtitle startDate={startDate} endDate={endDate} />
 		<h1>{title}</h1>
+		<DateSubtitle startDate={startDate} endDate={endDate} />
 		<slot />
 	</main>
 </body>
