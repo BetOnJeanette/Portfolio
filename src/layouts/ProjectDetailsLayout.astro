@@ -1,0 +1,62 @@
+---
+import Image from "astro/components/Image.astro";
+import Nav from "../components/Nav.astro"
+import "../styles/colorPalette.css"
+
+interface Props {
+    title: string,
+	imagePath: string
+};
+
+const { title, imagePath } = Astro.props;
+
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="This is the portfolio website for Jeanette Crull." />
+		<meta name="author" content="Jeanette Crull" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    </head>
+</html>
+<body>
+	<Nav />
+	<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
+	<h1>{title}</h1>
+	<slot />
+</body>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+		scroll-behavior: smooth;
+		scroll-padding-top: 80px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
