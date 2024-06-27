@@ -24,9 +24,11 @@ const { title, imagePath } = Astro.props;
 </html>
 <body>
 	<Nav />
-	<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
-	<h1>{title}</h1>
-	<slot />
+	<main>
+		<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
+		<h1>{title}</h1>
+		<slot />
+	</main>
 </body>
 <style is:global>
 	:root {
@@ -58,5 +60,18 @@ const { title, imagePath } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}	
+	main {
+		margin: auto;
+		padding: 4px;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	body {
+		display: contents;
+		margin: 0;
 	}
 </style>
