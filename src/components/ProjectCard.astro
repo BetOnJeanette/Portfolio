@@ -1,6 +1,7 @@
 ---
 import "../styles/colorPalette.css"
 import { Image } from "astro:assets"
+import DateSubtitle from "./DateSubtitle.astro";
 interface Props {
     projImage: string;
     imageAltText: string;
@@ -9,15 +10,12 @@ interface Props {
     completionDate?: Date;
 }
 const { projImage, imageAltText, projectName, startDate, completionDate } = Astro.props;
-const dateOptions: Intl.DateTimeFormatOptions = { month: "short", year: "numeric"}
-const startDateFormatStr = startDate.toLocaleDateString(undefined, dateOptions)
-const completionDateFormatStr = completionDate?.toLocaleDateString(undefined, dateOptions) ?? "Present"
 ---
 <div class="ProjectCard">
     <Image src={ projImage } alt={ imageAltText } width={800} height={450}/>
     <div class="ProjectDesc">
         <h2>{ projectName }</h2>
-        <sub>{ startDateFormatStr } - { completionDateFormatStr }</sub>
+        <DateSubtitle startDate={startDate} endDate={completionDate}/>
         <p>
             <slot />
         </p>

@@ -2,14 +2,16 @@
 import Image from "astro/components/Image.astro";
 import Nav from "../components/Nav.astro"
 import "../styles/colorPalette.css"
+import DateSubtitle from "../components/DateSubtitle.astro";
 
 interface Props {
     title: string,
-	imagePath: string
+	imagePath: string,
+	startDate: Date,
+	endDate?: Date,
 };
 
-const { title, imagePath } = Astro.props;
-
+const { title, imagePath, startDate, endDate } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -25,6 +27,7 @@ const { title, imagePath } = Astro.props;
 <body>
 	<Nav />
 	<main>
+		<DateSubtitle startDate={startDate} endDate={endDate}>
 		<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
 		<h1>{title}</h1>
 		<slot />
