@@ -34,6 +34,12 @@ const { title, imagePath, startDate, endDate } = Astro.props;
 	</main>
 </body>
 <style is:global>
+	:root{
+		--border-width: 5px;
+        --border-radius: 30px;
+        --inside-border-radius: calc(var(--border-radius) - var(--border-width));
+        --padding: calc(2 * var(--border-width));
+	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
@@ -64,5 +70,17 @@ const { title, imagePath, startDate, endDate } = Astro.props;
 	body {
 		display: contents;
 		margin: 0;
+	}
+	.projectPicture{
+		border-radius: var(--inside-border-radius) ;
+        object-fit: contain;
+        width: 100%;
+        height: fit-content;
+		width: min(800px, 100%);
+		border-radius: var(--border-radius);
+        border-width: var(--border-width);
+        border-color: var(--highlight-purple);
+        border-style: solid;
+		box-shadow: var(--border-width) var(--border-width);
 	}
 </style>
