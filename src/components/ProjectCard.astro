@@ -8,8 +8,10 @@ interface Props {
     projectName: string;
     startDate: Date;
     completionDate?: Date;
+    detailsLink?: string
 }
-const { projImage, imageAltText, projectName, startDate, completionDate } = Astro.props;
+const { projImage, imageAltText, projectName, startDate, completionDate, detailsLink} = Astro.props;
+const showDetailsLink = !(detailsLink === undefined)
 ---
 <div class="ProjectCard">
     <Image src={ projImage } alt={ imageAltText } width={800} height={450}/>
@@ -19,6 +21,12 @@ const { projImage, imageAltText, projectName, startDate, completionDate } = Astr
         <p>
             <slot />
         </p>
+        {showDetailsLink && 
+            <a href={detailsLink} class="detailsLink">
+                <p>Click here for more details.</p>
+            </a>
+        }
+        
     </div>
 </div>
 <style>
@@ -52,5 +60,8 @@ const { projImage, imageAltText, projectName, startDate, completionDate } = Astr
         object-fit: contain;
         width: 100%;
         height: fit-content;
+    }
+    .detailsLink {     
+        color: var(--highlight-purple);
     }
 </style>
