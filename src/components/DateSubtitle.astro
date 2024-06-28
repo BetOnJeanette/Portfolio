@@ -1,0 +1,13 @@
+---
+interface Props {
+    startDate: Date, 
+    endDate?: Date,
+}
+
+const {startDate, endDate} = Astro.props;
+const dateOptions: Intl.DateTimeFormatOptions = { month: "short", year: "numeric", day: "numeric"};
+const startDateFormatStr = startDate.toLocaleDateString(undefined, dateOptions);
+const endDateFormatStr = endDate?.toLocaleDateString(undefined, dateOptions) ?? "Present";
+---
+
+<sub>{startDateFormatStr} - {endDateFormatStr}</sub>

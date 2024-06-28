@@ -1,0 +1,86 @@
+---
+import Image from "astro/components/Image.astro";
+import Nav from "../components/Nav.astro"
+import "../styles/colorPalette.css"
+import DateSubtitle from "../components/DateSubtitle.astro";
+
+interface Props {
+    title: string,
+	imagePath: string,
+	startDate: Date,
+	endDate?: Date,
+};
+
+const { title, imagePath, startDate, endDate } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="This is the portfolio website for Jeanette Crull." />
+		<meta name="author" content="Jeanette Crull" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    </head>
+</html>
+<body>
+	<Nav />
+	<main>
+		<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
+		<h1>{title}</h1>
+		<DateSubtitle startDate={startDate} endDate={endDate} />
+		<slot />
+	</main>
+</body>
+<style is:global>
+	:root{
+		--border-width: 5px;
+        --border-radius: 30px;
+        --inside-border-radius: calc(var(--border-radius) - var(--border-width));
+        --padding: calc(2 * var(--border-width));
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+		scroll-behavior: smooth;
+		scroll-padding-top: 80px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}	
+	main {
+		margin: auto;
+		padding: 4px;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	body {
+		display: contents;
+		margin: 0;
+	}
+	.projectPicture{
+		border-radius: var(--inside-border-radius) ;
+        object-fit: contain;
+        width: 100%;
+        height: fit-content;
+		width: min(800px, 100%);
+		border-radius: var(--border-radius);
+        border-width: var(--border-width);
+        border-color: var(--highlight-purple);
+        border-style: solid;
+		box-shadow: var(--border-width) var(--border-width);
+	}
+</style>

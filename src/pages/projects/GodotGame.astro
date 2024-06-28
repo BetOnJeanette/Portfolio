@@ -1,0 +1,32 @@
+---
+import ProjectDetailsLayout from "../../layouts/ProjectDetailsLayout.astro";
+---
+<ProjectDetailsLayout title="Untitled Godot Game" imagePath="/Portfolio/Godot.png" startDate={new Date(2024, 0)}>
+    <section>
+        <h2>What is the project?</h2>
+        <p>
+            This is a board game written in C# using the Godot Engine. In it, players move along tiles on a board to complete jobs for money. 
+            Players can buy tiles that they land on along the way so that other players pay rent when they land on it.
+        </p>
+    </section>
+    <section>
+        <h2>What did I accomplish?</h2>
+        <ul>
+            <li>Created tiles for job-posting and properties, which link to a number of other tiles in the map.</li>
+            <li>Created a player, which keeps track of where they are and how much value they have in cash, properties, and stocks.</li>
+            <li>Prepared player movement, allowing the player to automatically move to the next tile unless there is more than one option available.</li>
+            <li>Created districts - collections of neighboring tiles that share stock.</li>
+            <li>Created shop categories, which can be changed by the owner to influence a shop and its neighbors' rent.</li>
+            <li>Prepared wireless multiplayer, allowing multiple clients to share information between sessions.</li>
+            <li>Created menus for players to trade properties and cash with each other.</li>
+            <li>Created jobs, which require players to navigate around to tiles on the board to gain money.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>What's next?</h2>
+        <p>
+            I am currently working on seasons and seasonal modifiers. These will be randomly selected events that are changed every few turns, and can effect player movement and rent prices.
+        </p>
+    </section>
+
+</ProjectDetailsLayout>
