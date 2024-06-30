@@ -28,7 +28,7 @@ const { title, imagePath, startDate, endDate } = Astro.props;
 	<Nav />
 	<main>
 		<Image class={"projectPicture"} src={imagePath} height={ 450 } width={ 800 } alt={ title }/>
-		<h1>{title}</h1>
+		<h1 id="projectTitle">{title}</h1>
 		<DateSubtitle startDate={startDate} endDate={endDate} />
 		<slot />
 	</main>
@@ -85,5 +85,8 @@ const { title, imagePath, startDate, endDate } = Astro.props;
 	}
 	a,a:visited {
         color: var(--highlight-purple);
+	}
+	#projectTitle {
+		color: var(--highlight-purple);
 	}
 </style>
