@@ -8,12 +8,11 @@ function ProjectSection(){
     
     function MoveToNextCard(){
         // Move forward and mod back to prevent OOB
-        const movedForward = (frontCard() + projectCards.length - 1) % projectCards.length;
-        setFrontCard(movedForward);
+        setFrontCard(prev => (prev + projectCards.length - 1) % projectCards.length);
     }
+
     function MoveToPreviousCard(){
-        const movedForward = (frontCard() + 1) % projectCards.length;
-        setFrontCard(movedForward);
+        setFrontCard(prev => (prev + 1) % projectCards.length);
     }
 
     function GetCardsSentToBack(){
