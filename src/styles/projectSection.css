@@ -1,0 +1,41 @@
+#projects {
+    position: relative;
+    display: grid; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    grid-template: "leftControl cards rightControl" / 10% 80% 10%;
+}
+
+#cards {
+    position: relative;
+    z-index: 0; 
+    overflow: auto;
+    grid-area: cards;
+}
+
+#nextButton{
+    grid-area: rightControl;
+    float: left;
+}
+
+#prevButton{
+    grid-area: leftControl;
+    float: right;
+}
+
+.projectButtonSpace {
+    display: block;
+    justify-content: center;
+}
+
+.cardAnimator {
+    position: absolute
+}
+
+@media (max-width: 480px) {
+    #projects {
+        grid-template:  "leftControl rightControl"
+                        "cards cards" / 50% 50%;
+    }
+}
