@@ -12,9 +12,11 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/check": "^0.7.0",
+    "@astrojs/solid-js": "^4.4.0",
     "@types/alpinejs": "^3.13.10",
     "alpinejs": "^3.14.0",
     "astro": "^4.8.6",
+    "solid-js": "^1.8.18",
     "typescript": "^5.4.5"
   }
 }

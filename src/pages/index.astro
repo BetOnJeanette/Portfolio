@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import MainPageSection from '../components/MainPageSection.astro';
 import Header from '../components/Header.astro';
-import ProjectsSection from '../components/ProjectsSection.astro';
+import ProjectsSection from '../components/ProjectsSection'
 import Contact from '../components/Contact.astro';
 ---
 
@@ -19,7 +19,7 @@ import Contact from '../components/Contact.astro';
 		<p>I was a full-stack developer on the Hospital Billing module of Epic, primarily in the insurance space.</p>
 	</MainPageSection>
 	<MainPageSection id="Projects" label="Projects">
-		<ProjectsSection />
+		<ProjectsSection client:idle/>
 	</MainPageSection>
 	<MainPageSection id="Contact" label="Contact Information">
 		<Contact />
