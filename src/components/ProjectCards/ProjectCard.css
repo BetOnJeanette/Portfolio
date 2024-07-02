@@ -16,6 +16,7 @@
     border-style: solid;
     box-shadow: var(--border-width) var(--border-width);
     overflow: hidden;
+    background-color: var(--background-color);
 }
 .ProjectDesc {
     padding: 0 var(--padding);
