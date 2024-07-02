@@ -15,22 +15,14 @@ function ProjectSection(){
         setFrontCard(prev => (prev + 1) % projectCards.length);
     }
 
-    function GetCardsSentToBack(){
-        return projectCards.slice(frontCard() + 1)
-    }
-
-    function GetFrontmostCards(){
-        return projectCards.slice(0, frontCard() + 1)
+    function GetReorderedCards(){
+        return [...projectCards.slice(frontCard() + 1), ...projectCards.slice(0, frontCard() + 1)]
     }
 
 
     return  <div class="AlternatingCards">
         <button onClick={MoveToPreviousCard}>&lt</button>
-        <For each={GetCardsSentToBack()}>
-            { (card) => card() }
-        </For>
-        <For each={GetFrontmostCards()}>
-            { (card) => card() }
+        <For each={GetReorderedCards()}>
         </For>
         <button onClick={MoveToNextCard}>&gt</button>
     </div>
