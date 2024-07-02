@@ -1,0 +1,37 @@
+
+:root {
+    --border-width: 5px;
+    --border-radius: 30px;
+    --inside-border-radius: calc(var(--border-radius) - var(--border-width));
+    --padding: calc(2 * var(--border-width));
+    --single-vertical-step: var(--padding);
+}
+.ProjectCard {
+    margin: var(--single-vertical-step) var(--border-width);
+    margin-right: calc(2 * var(--border-width));
+    counter-increment: projectCount;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    border-width: var(--border-width);
+    border-color: var(--highlight-purple);
+    border-style: solid;
+    box-shadow: var(--border-width) var(--border-width);
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+.ProjectDesc {
+    padding: 0 var(--padding);
+    line-height: normal;
+}
+.ProjectDesc h2 {
+    margin: 0;
+}
+.ProjectCard img {
+    border-radius: var(--inside-border-radius) var(--inside-border-radius) 0 0;
+    object-fit: contain;
+    width: 100%;
+    height: fit-content;
+}
+.detailsLink {     
+    color: var(--highlight-purple);
+}
