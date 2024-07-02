@@ -3,17 +3,37 @@ import {DivisibilityCalculatorCard, GodotGameCode, LanPartyAppCard, DaytaCard} f
 import type { JsxElement } from "typescript";
 
 function ProjectSection(){
-    const [projectCards, setProjectCards] = createSignal([ LanPartyAppCard, GodotGameCode, DaytaCard, DivisibilityCalculatorCard])
+    const projectCards= [LanPartyAppCard, GodotGameCode, DaytaCard, DivisibilityCalculatorCard]
+    const [frontCard, setFrontCard] = createSignal(projectCards.length - 1)
+    
+    function MoveToNextCard(){
+        // Move forward and mod back to prevent OOB
+        const movedForward = (frontCard() + projectCards.length - 1) % projectCards.length;
+        setFrontCard(movedForward);
+    }
+    function MoveToPreviousCard(){
+        const movedForward = (frontCard() + 1) % projectCards.length;
+        setFrontCard(movedForward);
+    }
 
-    let firstCard: HTMLDivElement;
+    function GetCardsSentToBack(){
+        return projectCards.slice(frontCard() + 1)
+    }
+
+    function GetFrontmostCards(){
+        return projectCards.slice(0, frontCard() + 1)
+    }
+
+
     return  <div class="AlternatingCards">
-        <For each={projectCards()}>
-            {(card, index) => {
-                return <div class="cardAnimationContainer">
-                    {card()}
-                </div>
-            }}
+        <button onClick={MoveToPreviousCard}>&lt</button>
+        <For each={GetCardsSentToBack()}>
+            { (card) => card() }
         </For>
+        <For each={GetFrontmostCards()}>
+            { (card) => card() }
+        </For>
+        <button onClick={MoveToNextCard}>&gt</button>
     </div>
 }
 
