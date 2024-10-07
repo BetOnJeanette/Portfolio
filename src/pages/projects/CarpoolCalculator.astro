@@ -1,0 +1,35 @@
+---
+import ProjectDetailsLayout from "../../layouts/ProjectDetailsLayout.astro";
+---
+<ProjectDetailsLayout 
+    title="Carpool Calculator" 
+    imagePath="/Portfolio/CarpoolCalculator.png"
+    startDate={new Date(2024, 8, 4)}
+    endDate={new Date(2024, 9, 6)}>
+    <section>
+        <h2>What is this project?</h2>
+        <p>
+            This is a web app that calculates the most efficient route to have everyone carpool to a single destination. 
+            It takes in information like where everyone is meeting, where people are starting from, and what cars are available.
+        </p>
+        <p><a href="https://betonjeanette.github.io/CarpoolCalculator/">You can see it here.</a></p>
+    </section>
+    <section>
+        <h2>What did I accomplish?</h2>
+        <ul>
+            <li>Created autocomplete field for selecting a location</li>
+            <li>Created a component to create appendable lists of forms to get information from user</li>
+            <li>Created pages for gathering information on the destination, starting locations of groups, cars, and the routes</li>
+            <li>Wrote API calls to openroute Service for geocoding and routing</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Are there any notable compromises that were made?</h2>
+        <p>
+            I made the decision to use openroute service because I wanted to take as minimal of a risk of running into API costs as possible, 
+            seeing that this is a free webapp with no advertising space used. There are limitations to the locations available as a result: 
+            many addresses are unavailable. There are some workarounds for this - streets and venues tend to be more reliable - 
+            but it is still a notable drawback to to project.
+        </p>
+    </section>
+</ProjectDetailsLayout>
