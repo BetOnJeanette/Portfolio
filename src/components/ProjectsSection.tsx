@@ -1,9 +1,9 @@
 import { For, createSignal, onMount, type Ref } from "solid-js"
-import {DivisibilityCalculatorCard, GodotGameCode, LanPartyAppCard, DaytaCard} from "./ProjectCards/projects"
+import {DivisibilityCalculatorCard, GodotGameCode, LanPartyAppCard, DaytaCard, CarpoolCalculator} from "./ProjectCards/projects"
 import "../styles/projectSection.css"
 
 function ProjectSection(){
-    const projectCards= [LanPartyAppCard, GodotGameCode, DaytaCard, DivisibilityCalculatorCard]
+    const projectCards= [LanPartyAppCard, GodotGameCode, DaytaCard, DivisibilityCalculatorCard, CarpoolCalculator]
     const [frontCard, setFrontCard] = createSignal(projectCards.length - 1)
     const CARD_OFFSET = 15;
     
