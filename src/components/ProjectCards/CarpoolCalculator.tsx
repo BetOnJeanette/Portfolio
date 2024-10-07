@@ -2,7 +2,7 @@ import ProjectCard from "./ProjectCard";
 export default function CarpoolCalculator(){
     return <ProjectCard 
         startDate={new Date(2024, 8, 4)}
-        completionDate={new Date(2024, 10, 6)}
+        completionDate={new Date(2024, 9, 6)}
         imageAltText="Carpool Calculator Example"
         projImage="/Portfolio/CarpoolCalculator.png"
         projectName="Carpool Calculator"
