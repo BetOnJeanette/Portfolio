@@ -9,6 +9,6 @@ export default function CarpoolCalculator(){
         detailsLink="/Portfolio/projects/CarpoolCalculator">
 
         A web app that allows people to find the most efficient routes for people trying to carpool to a location. 
-        It can be found <a href="https://betonjeanette.github.io/CarpoolCalculator/">by following this link</a>
+        It can be found <a href="https://betonjeanette.github.io/CarpoolCalculator/">by following this link</a>.
     </ProjectCard>
 }
