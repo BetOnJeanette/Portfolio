@@ -30,7 +30,8 @@
 }
 
 .cardAnimator {
-    position: absolute
+    position: absolute;
+    transition: top .0625s ease-in;
 }
 
 .projectChangeButton {
