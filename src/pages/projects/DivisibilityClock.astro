@@ -1,25 +1,44 @@
 ---
 import ProjectDetailsLayout from "../../layouts/ProjectDetailsLayout.astro";
-
-
 ---
-<ProjectDetailsLayout title="Divisibility Clock" imagePath="/Portfolio/DivisibilityClock.png" startDate={new Date(2024, 5, 25)} endDate={new Date(2024, 5, 26)}>
-    <section>
-        <h2>What is this project?</h2>
-        <p>
-            This is a web app that creates diagrams for how, for a given divisor, a number's remainder will change when multiplying by 10. 
-            This app uses Astro, with SolidJS for state management, and sigma.js for the diagram. 
-        </p>
-        <a href="https://betonjeanette.github.io/DivisibilityClock/">
-            <p>You can see it here.</p>
-        </a>
-    </section>
-    <section>
-        <h2>What did I accomplish?</h2>
-        <ul>
-            <li>Created a directional graph that shows how the remainder for every number before the divisor changes when multiplied by 10.</li>
-            <li>Updated the graph when users updated the divisor using the controls above.</li>
-            <li>Created an explanation page for what the graph is doing and how to use it.</li>
-        </ul>
-    </section>
+
+<ProjectDetailsLayout
+  title="Divisibility Clock"
+  imagePath="/Portfolio/DivisibilityClock.png"
+  startDate={new Date(2024, 5, 25)}
+  endDate={new Date(2024, 5, 26)}
+>
+  <section>
+    <h2>What is this project?</h2>
+    <p>
+      This is a web app that creates diagrams for how, for a given divisor, a
+      number's remainder will change when multiplying by 10.
+    </p>
+    <a href="https://betonjeanette.github.io/DivisibilityClock/">
+      <p>You can see it here.</p>
+    </a>
+  </section>
+  <h2>What tech was used in this project?</h2>
+  <ul>
+    <li>Astro for the static pages (Explanation, Creator).</li>
+    <li>SolidJS for the state management on the main page.</li>
+    <li>Sigma.js for the diagram.</li>
+  </ul>
+  <section>
+    <h2>What did I accomplish?</h2>
+    <ul>
+      <li>
+        Created a directional graph that shows how the remainder for every
+        number before the divisor changes when multiplied by 10.
+      </li>
+      <li>
+        Updated the graph when users updated the divisor using the controls
+        above.
+      </li>
+      <li>
+        Created an explanation page for what the graph is doing and how to use
+        it.
+      </li>
+    </ul>
+  </section>
 </ProjectDetailsLayout>
