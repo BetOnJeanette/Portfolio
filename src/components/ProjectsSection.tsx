@@ -1,4 +1,4 @@
-import { For, createSignal, onMount, type Ref } from "solid-js"
+import { For, createSignal, onMount, type Accessor, type Ref } from "solid-js"
 import {DivisibilityCalculatorCard, GodotGameCode, LanPartyAppCard, DaytaCard, CarpoolCalculator} from "./ProjectCards/projects"
 import "../styles/projectSection.css"
 
@@ -8,14 +8,28 @@ function ProjectSection(){
     const CARD_OFFSET = 15;
     
     const [totalHeight, setTotalHeight] = createSignal(0)
+    const [moveTopUp, setMoveTopUp] = createSignal<boolean>(false);
+    const [moveBottomUp, setMoveBottomUp] = createSignal<boolean>(false);
+    const CARD_MOVEMENT_TIME=62.5;
 
     function MoveToNextCard(){
+        // prevent 
+        if (moveTopUp() || moveBottomUp()) return;
+        setMoveTopUp(true);
+        setTimeout(() => {
+            setFrontCard(prev => (prev + projectCards.length - 1) % projectCards.length);
+            setMoveTopUp(false);
+        }, CARD_MOVEMENT_TIME)
         // Move forward and mod back to prevent OOB
-        setFrontCard(prev => (prev + projectCards.length - 1) % projectCards.length);
     }
 
     function MoveToPreviousCard(){
-        setFrontCard(prev => (prev + 1) % projectCards.length);
+        if (moveTopUp() || moveBottomUp()) return;
+        setMoveBottomUp(true);
+        setTimeout(() => {
+            setFrontCard(prev => (prev + 1) % projectCards.length);
+            setMoveBottomUp(false);
+        }, CARD_MOVEMENT_TIME)
     }
 
     function GetReorderedCards(){
@@ -28,6 +42,12 @@ function ProjectSection(){
         setTotalHeight(largestCard.offsetHeight + (CARD_OFFSET * (projectCards.length + 1)))
     })
 
+    function GetCardTopOffset(idx: Accessor<number>):number{
+        if (idx() === 0 && moveBottomUp()) return (idx() - 1) * CARD_OFFSET;
+        else if (idx() === projectCards.length - 1 && moveTopUp()) return (idx() - 1) * CARD_OFFSET;
+        return idx() * CARD_OFFSET
+    }
+
 
     return  <div id="projects">
         <div class="projectButtonSpace">
@@ -37,7 +57,7 @@ function ProjectSection(){
             <For each={GetReorderedCards()}>
                 { (card, index) => {
                     return <div class="cardAnimator" style={{
-                            "top": (index() * CARD_OFFSET).toString() + "px",
+                            "top": GetCardTopOffset(index).toString() + "px",
                             "z-index": (index() - projectCards.length).toString(),
                         }}
                         ref={(elm) => { if (largestCard == undefined || largestCard.clientHeight < elm.clientHeight) largestCard = elm; }}>
